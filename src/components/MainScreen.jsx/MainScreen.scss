@@ -1,0 +1,55 @@
+.main {
+  padding: 24px;
+  background: url(../../assets/иллюстрация_шевченко_1.png) no-repeat right top
+      209px,
+    url(../../assets/иллюстрация_шевченко_2.png) no-repeat right 73px top 16px;
+  background-color: #212322;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  &__author {
+    color: #fff;
+    font-family: Oswald;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.16px;
+    text-transform: uppercase;
+    max-width: 70px;
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    color: #f3bc55;
+    font-family: Oswald;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.72px;
+    margin-bottom: 16px;
+  }
+
+  &__subtitle {
+    color: #fff;
+    font-family: Oswald;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    max-width: 205px;
+  }
+
+  &__button {
+    margin-top: 32px;
+  }
+}
+
+

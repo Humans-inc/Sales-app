@@ -1,0 +1,32 @@
+.video-link {
+  border-radius: 8px;
+  background: #2c2e2d url(../../assets/play-circle.svg) no-repeat center right
+    16px;
+  padding: 16px;
+  padding-right: 56px;
+  margin-bottom: 8px;
+  width: 100%;
+
+  &__title {
+    color: #fff;
+    font-family: Oswald;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.16px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  &__descr {
+    color: #7e7e7e;
+    font-family: Roboto Condensed;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.12px;
+    text-transform: uppercase;
+  }
+}

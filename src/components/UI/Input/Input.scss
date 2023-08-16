@@ -1,0 +1,48 @@
+.input {
+  border-radius: 8px;
+  background: var(--dark-theme-background-5, rgba(255, 255, 255, 0.05));
+  padding: 8px 20px;
+  padding-top: 29px;
+  margin-bottom: 15px;
+  position: relative;
+  width: 100%;
+  border: none;
+  display: block;
+  min-height: 58px;
+  color: var(--dark-theme-white, #fff);
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  &::placeholder {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    color: var(--dark-theme-medium-text-50, rgba(255, 255, 255, 0.5));
+    font-family: Roboto Condensed;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+  &:not(:placeholder-shown) {
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02) url(../../../assets/check-circle.svg) no-repeat center right 20px;
+  }
+}
+.input-wrap {
+  position: relative;
+  width: 100%;
+  &__placeholder {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    color: var(--dark-theme-medium-text-50, rgba(255, 255, 255, 0.5));
+    font-family: Roboto Condensed;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

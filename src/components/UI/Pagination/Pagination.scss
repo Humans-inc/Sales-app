@@ -1,0 +1,23 @@
+.pagination {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+
+  &__item {
+    width: 8px;
+    height: 8px;
+    display: block;
+    border-radius: 8px;
+    background: #575757;
+
+    &_active {
+      width: 16px;
+      height: 8px;
+      border-radius: 8px;
+      background: #f3bc55;
+    }
+  }
+}

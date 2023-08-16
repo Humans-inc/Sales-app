@@ -1,0 +1,37 @@
+.user-content {
+  background: #212322;
+  padding: 24px;
+  padding-top: 37px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 41px;
+  }
+
+  &__title {
+    color: #f3bc55;
+    font-family: Oswald;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  &__author {
+    color: #fff;
+    font-family: Oswald;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.12px;
+    text-transform: uppercase;
+    max-width: 54px;
+    margin-left: auto;
+  }
+}
