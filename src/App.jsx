@@ -39,11 +39,6 @@ function App() {
     fetchData(tg.initData);
   }, []);
 
-  console.log({
-    username: tg.initData.user.username,
-    id: tg.initData.user.id,
-  });
-
   const handleShowMain = () => {
     setShowMain(false);
     setShowForm(true);
@@ -92,6 +87,10 @@ function App() {
 
     formData.append('user_tgid', tg.initData.user.id);
 
+    for (var pair of formData.entries()) {
+      console.log(pair[0] + ', ' + pair[1]);
+    }
+
     const response = await fetch('https://hmns.in/prodano/public/register', {
       method: 'POST',
       headers: {
@@ -114,7 +113,7 @@ function App() {
   return (
     <>
       {showMain ? <MainScreen onButtonClick={handleShowMain} /> : ''}
-      {showForm ? <UserDataForm onFormSubmit={handleForm} /> : ''}
+      {showForm ? <UserDataForm onFormSubmit={handleForm} userName={tg.initData.user.username}/> : ''}
       {showContent ? <UserContent /> : ''}
     </>
   );
