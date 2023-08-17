@@ -80,12 +80,16 @@ function App() {
 
   // checkData(tg.initData);
 
+  const userData = JSON.parse(tg.initData);
+
+  console.log(userData);
+
   const handleForm = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
 
-    formData.append('user_tgid', tg.initData.user.id);
+    formData.append('user_tgid', userData.user.id);
 
     for (var pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1]);
@@ -113,7 +117,14 @@ function App() {
   return (
     <>
       {showMain ? <MainScreen onButtonClick={handleShowMain} /> : ''}
-      {showForm ? <UserDataForm onFormSubmit={handleForm}/> : ''}
+      {showForm ? (
+        <UserDataForm
+          onFormSubmit={handleForm}
+          userName={userData.user.username}
+        />
+      ) : (
+        ''
+      )}
       {showContent ? <UserContent /> : ''}
     </>
   );

@@ -3,7 +3,7 @@ import Button from '../UI/Button/Button';
 import Input from '../UI/Input/Input';
 
 import './UserDataForm.scss';
-const UserDataForm = ({ onFormSubmit }) => {
+const UserDataForm = ({ onFormSubmit, userName }) => {
   
   return (
     <form className="user-form" onSubmit={onFormSubmit}>
@@ -12,7 +12,7 @@ const UserDataForm = ({ onFormSubmit }) => {
       <Input placeholder="Телефон" name="user_phone" />
       <Input placeholder="Email" name="user_email" />
       <Input placeholder="Instagram" name="user_insta" />
-      <Input placeholder="Telegram" name="user_telegram"/>
+      <Input placeholder="Telegram" name="user_telegram" value={userName} />
       <Pagination
         length={[
           { number: 101, active: false },
