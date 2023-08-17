@@ -41,7 +41,7 @@ function App() {
 
   const handleShowMain = () => {
     setShowMain(false);
-    setShowContent(true);
+    setShowForm(true);
   };
 
   // const handleSendForm = (e) => {
@@ -80,9 +80,9 @@ function App() {
 
   // checkData(tg.initData);
 
-  const userData = tg.initData;
+  const userData = tg.initDataUnsafe;
 
-  console.log({userData, typeof: typeof userData});
+  console.log({ userData, typeof: typeof initDataUnsafe });
 
   const handleForm = async (e) => {
     e.preventDefault();
