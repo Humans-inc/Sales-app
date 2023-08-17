@@ -25,6 +25,11 @@ const UserContent = () => {
       description: 'Глава 5. Как подготовиться к продажам',
     },
     {
+      id: '-avncddH7Yk',
+      title: 'Создание карточки',
+      description: 'Глава 6. Создание карточки товара',
+    },
+    {
       id: 'r40RENZPpSo',
       title: 'Личный бренд',
       description: 'Глава 7. Продвижение товара',
