@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import './App.scss';
 
@@ -7,9 +7,38 @@ import UserDataForm from './components/UserDataForm/UserDataForm';
 import UserContent from './components/UserContent/UserContent';
 
 function App() {
-  const [showMain, setShowMain] = useState(false); // set false
+  const [showMain, setShowMain] = useState(false);
   const [showForm, setShowForm] = useState(false);
   const [showContent, setShowContent] = useState(false);
+
+  const tg = window.Telegram.WebApp;
+
+  useEffect(() => {
+    const fetchData = async (init) => {
+      const response = await fetch('https://hmns.in/prodano/public/check', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: init,
+      });
+
+      const data = await response.json();
+
+      if (data.ok) {
+        console.log(data.registered);
+        // if (data.registered) {
+        //   setShowMain(false);
+        //   setShowForm(false);
+        //   setShowContent(true);
+        // } else {
+        //   setShowMain(true);
+      }
+    };
+    fetchData(tg.initData);
+  }, []);
+
+  console.log(tg.initData);
 
   const handleShowMain = () => {
     setShowMain(false);
@@ -22,40 +51,42 @@ function App() {
   //   setShowContent(!showContent);
   // };
 
-  const tg = window.Telegram.WebApp;
+  //const tg = window.Telegram.WebApp;
 
-  const checkData = async (init) => {
-    try {
-      const response = await fetch('https://hmns.in/prodano/public/check', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: init,
-      });
+  // const checkData = async (init) => {
+  //   try {
+  //     const response = await fetch('https://hmns.in/prodano/public/check', {
+  //       method: 'POST',
+  //       headers: {
+  //         'Content-Type': 'application/x-www-form-urlencoded',
+  //       },
+  //       body: init,
+  //     });
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      if (data.ok) {
-        if (data.registered) {
-          setShowMain(false);
-          setShowForm(false);
-          setShowContent(true);
-        } else {
-          setShowMain(true);
-        }
-      }
-    } catch (err) {
-      alert('Ошибка ' + err.status + '\n' + err.statusText);
-    }
-  };
+  //     if (data.ok) {
+  //       if (data.registered) {
+  //         setShowMain(false);
+  //         setShowForm(false);
+  //         setShowContent(true);
+  //       } else {
+  //         setShowMain(true);
+  //       }
+  //     }
+  //   } catch (err) {
+  //     alert('Ошибка ' + err.status + '\n' + err.statusText);
+  //   }
+  // };
 
-  checkData(tg.initData);
+  // checkData(tg.initData);
 
   const handleForm = (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
+
+    formData.append('user_tgid', );
     for (let pair of formData.entries()) {
       console.log(pair);
     }
