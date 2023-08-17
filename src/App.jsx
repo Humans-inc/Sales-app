@@ -6,26 +6,69 @@ import MainScreen from './components/MainScreen.jsx/MainScreen';
 import UserDataForm from './components/UserDataForm/UserDataForm';
 import UserContent from './components/UserContent/UserContent';
 
-
 function App() {
-  const [showMain, setShowMain] = useState(true);
+  const [showMain, setShowMain] = useState(false); // set false
   const [showForm, setShowForm] = useState(false);
   const [showContent, setShowContent] = useState(false);
 
   const handleShowMain = () => {
-    setShowMain(!showMain);
-    setShowForm(!showForm);
+    setShowMain(false);
+    setShowForm(true);
   };
 
-  const handleSendForm = () => {
-    setShowForm(!showForm);
-    setShowContent(!showContent);
+  // const handleSendForm = (e) => {
+  //   e.preventDefault();
+  //   setShowForm(!showForm);
+  //   setShowContent(!showContent);
+  // };
+
+  const tg = window.Telegram.WebApp;
+
+  const checkData = async (init) => {
+    try {
+      const response = await fetch('https://hmns.in/prodano/public/check', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: init,
+      });
+
+      const data = await response.json();
+
+      if (data.ok) {
+        if (data.registered) {
+          setShowMain(false);
+          setShowForm(false);
+          setShowContent(true);
+        } else {
+          setShowMain(true);
+        }
+      }
+    } catch (err) {
+      alert('Ошибка ' + err.status + '\n' + err.statusText);
+    }
+  };
+
+  checkData(tg.initData);
+
+  const handleForm = (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    for (let pair of formData.entries()) {
+      console.log(pair);
+    }
+
+    setShowMain(false);
+    setShowForm(false);
+    setShowContent(true);
   };
 
   return (
     <>
       {showMain ? <MainScreen onButtonClick={handleShowMain} /> : ''}
-      {showForm ? <UserDataForm onFormButtonClick={handleSendForm} /> : ''}
+      {showForm ? <UserDataForm onFormSubmit={handleForm} /> : ''}
       {showContent ? <UserContent /> : ''}
     </>
   );
