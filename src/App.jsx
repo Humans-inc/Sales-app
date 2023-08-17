@@ -26,13 +26,14 @@ function App() {
       const data = await response.json();
 
       if (data.ok) {
-        console.log(data.registered);
-        // if (data.registered) {
-        //   setShowMain(false);
-        //   setShowForm(false);
-        //   setShowContent(true);
-        // } else {
-        //   setShowMain(true);
+        console.log({registered: data.registered});
+        if (data.registered) {
+          setShowMain(false);
+          setShowForm(false);
+          setShowContent(true);
+        } else {
+          setShowMain(true);
+        }
       }
     };
     fetchData(tg.initData);
@@ -86,7 +87,7 @@ function App() {
 
     const formData = new FormData(e.target);
 
-    formData.append('user_tgid', );
+    formData.append('user_tgid');
     for (let pair of formData.entries()) {
       console.log(pair);
     }
