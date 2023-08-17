@@ -26,7 +26,7 @@ function App() {
       const data = await response.json();
 
       if (data.ok) {
-        console.log({registered: data.registered});
+        console.log({ registered: data.registered });
         if (data.registered) {
           setShowMain(false);
           setShowForm(false);
@@ -39,7 +39,10 @@ function App() {
     fetchData(tg.initData);
   }, []);
 
-  console.log(tg.initData);
+  console.log({
+    username: tg.initData.user.username,
+    id: tg.initData.user.id,
+  });
 
   const handleShowMain = () => {
     setShowMain(false);
@@ -82,19 +85,30 @@ function App() {
 
   // checkData(tg.initData);
 
-  const handleForm = (e) => {
+  const handleForm = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
 
-    formData.append('user_tgid');
-    for (let pair of formData.entries()) {
-      console.log(pair);
-    }
+    formData.append('user_tgid', tg.initData.user.id);
 
-    setShowMain(false);
-    setShowForm(false);
-    setShowContent(true);
+    const response = await fetch('https://hmns.in/prodano/public/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+
+    if (data.ok) {
+      setShowMain(false);
+      setShowForm(false);
+      setShowContent(true);
+    }
   };
 
   return (

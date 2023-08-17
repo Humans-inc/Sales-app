@@ -4,6 +4,8 @@ import Input from '../UI/Input/Input';
 
 import './UserDataForm.scss';
 const UserDataForm = ({ onFormSubmit }) => {
+  const tg = window.Telegram.WebApp;
+
   return (
     <form className="user-form" onSubmit={onFormSubmit}>
       <div className="user-form__title">Анкета перед стартом</div>
@@ -11,7 +13,11 @@ const UserDataForm = ({ onFormSubmit }) => {
       <Input placeholder="Телефон" name="user_phone" />
       <Input placeholder="Email" name="user_email" />
       <Input placeholder="Instagram" name="user_insta" />
-      <Input placeholder="Telegram" name="user_telegram" />
+      <Input
+        placeholder="Telegram"
+        name="user_telegram"
+        value={tg.initData.user.username}
+      />
       <Pagination
         length={[
           { number: 101, active: false },
