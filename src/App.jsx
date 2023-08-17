@@ -41,7 +41,7 @@ function App() {
 
   const handleShowMain = () => {
     setShowMain(false);
-    setShowForm(true);
+    setShowContent(true);
   };
 
   // const handleSendForm = (e) => {
@@ -80,9 +80,9 @@ function App() {
 
   // checkData(tg.initData);
 
-  const userData = JSON.parse(tg.initData);
+  const userData = tg.initData;
 
-  console.log(userData);
+  console.log({userData, typeof: typeof userData});
 
   const handleForm = async (e) => {
     e.preventDefault();
