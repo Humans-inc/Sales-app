@@ -113,7 +113,7 @@ function App() {
   return (
     <>
       {showMain ? <MainScreen onButtonClick={handleShowMain} /> : ''}
-      {showForm ? <UserDataForm onFormSubmit={handleForm} userName={tg.initData.user.username}/> : ''}
+      {showForm ? <UserDataForm onFormSubmit={handleForm}/> : ''}
       {showContent ? <UserContent /> : ''}
     </>
   );
