@@ -89,7 +89,7 @@ function App() {
 
     const formData = new FormData(e.target);
 
-    formData.append('user_tgid', userData.user.id);
+    formData.append('user_tgid', tg.initDataUnsafe.user.id);
 
     for (var pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1]);
@@ -120,7 +120,7 @@ function App() {
       {showForm ? (
         <UserDataForm
           onFormSubmit={handleForm}
-          userName={userData.user.username}
+          userName={tg.initDataUnsafe.user.username}
         />
       ) : (
         ''
