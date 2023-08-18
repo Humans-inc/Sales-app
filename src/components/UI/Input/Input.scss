@@ -15,18 +15,18 @@
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  &::placeholder {
-    position: absolute;
-    top: 8px;
-    left: 20px;
-    color: var(--dark-theme-medium-text-50, rgba(255, 255, 255, 0.5));
-    font-family: Roboto Condensed;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
-  &:not(:placeholder-shown) {
+  // &::placeholder {
+  //   position: absolute;
+  //   top: 8px;
+  //   left: 20px;
+  //   color: var(--dark-theme-medium-text-50, rgba(255, 255, 255, 0.5));
+  //   font-family: Roboto Condensed;
+  //   font-size: 14px;
+  //   font-style: normal;
+  //   font-weight: 400;
+  //   line-height: normal;
+  // }
+  &.full {
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.02) url(../../../assets/check-circle.svg) no-repeat center right 20px;
   }

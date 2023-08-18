@@ -18,7 +18,7 @@ const MainScreen = ({onButtonClick}) => {
         ]}
       />
       <Button addClass="main__button" onClick={onButtonClick}>
-        Открыть уроки
+        Регистрация
       </Button>
     </div>
   );
