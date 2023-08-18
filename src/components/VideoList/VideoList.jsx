@@ -40,8 +40,12 @@ const VideoList = ({ list }) => {
 
   useEffect(() => {
     console.log(idVideo);
+  }, [idVideo, openPopup]);
+
+  useEffect(() => {
+    console.log(lessonNumber);
     sendLessonId(lessonNumber);
-  }, [idVideo, openPopup, lessonNumber]);
+  }, [lessonNumber]);
 
   // setOpenPopup(!openPopup);
   // console.log({ id, idVideo, openPopup });
