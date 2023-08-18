@@ -1,11 +1,11 @@
 import './Input.scss';
-const Input = (props) => {
+const Input = ({ inputPlaceholder, name, value = '' }) => {
   return (
     <div className="input-wrap">
-      <div className="input-wrap__placeholder">{props.placeholder}</div>
-      <input className="input" {...props} />
+      <div className="input-wrap__placeholder">{inputPlaceholder}</div>
+      <input className="input" name={name} value={value} />
     </div>
   );
-}
+};
 
 export default Input

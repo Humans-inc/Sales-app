@@ -8,11 +8,15 @@ const UserDataForm = ({ onFormSubmit, userName }) => {
   return (
     <form className="user-form" onSubmit={onFormSubmit}>
       <div className="user-form__title">Анкета перед стартом</div>
-      <Input placeholder="Имя" name="user_name" />
-      <Input placeholder="Телефон" name="user_phone" />
-      <Input placeholder="Email" name="user_email" />
-      <Input placeholder="Instagram" name="user_insta" />
-      <Input placeholder="Telegram" name="user_telegram" value={userName} />
+      <Input inputPlaceholder="Имя" name="user_name" />
+      <Input inputPlaceholder="Телефон" name="user_phone" />
+      <Input inputPlaceholder="Email" name="user_email" />
+      <Input inputPlaceholder="Instagram" name="user_insta" />
+      <Input
+        inputPlaceholder="Telegram"
+        name="user_telegram"
+        value={userName}
+      />
       <Pagination
         length={[
           { number: 101, active: false },

@@ -29,8 +29,8 @@ function App() {
         console.log({ registered: data.registered });
         if (data.registered) {
           setShowMain(false);
-          setShowForm(false);
-          setShowContent(true);
+          setShowForm(true);
+          //setShowContent(true);
         } else {
           setShowMain(true);
         }
@@ -44,43 +44,6 @@ function App() {
     setShowForm(true);
   };
 
-  // const handleSendForm = (e) => {
-  //   e.preventDefault();
-  //   setShowForm(!showForm);
-  //   setShowContent(!showContent);
-  // };
-
-  //const tg = window.Telegram.WebApp;
-
-  // const checkData = async (init) => {
-  //   try {
-  //     const response = await fetch('https://hmns.in/prodano/public/check', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/x-www-form-urlencoded',
-  //       },
-  //       body: init,
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (data.ok) {
-  //       if (data.registered) {
-  //         setShowMain(false);
-  //         setShowForm(false);
-  //         setShowContent(true);
-  //       } else {
-  //         setShowMain(true);
-  //       }
-  //     }
-  //   } catch (err) {
-  //     alert('Ошибка ' + err.status + '\n' + err.statusText);
-  //   }
-  // };
-
-  // checkData(tg.initData);
-
-
   const handleForm = async (e) => {
     e.preventDefault();
 
@@ -92,19 +55,28 @@ function App() {
       console.log(pair[0] + ', ' + pair[1]);
     }
 
-    const response = await fetch('https://hmns.in/prodano/public/register', {
-      method: 'POST',
-      body: formData,
-    });
+    if (
+      e.target.user_name.value.length &&
+      e.target.user_name.user_phone.length &&
+      e.target.user_name.user_email.length &&
+      e.target.user_name.user_insta.length
+    ) {
+      const response = await fetch('https://hmns.in/prodano/public/register', {
+        method: 'POST',
+        body: formData,
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    console.log(data);
+      console.log(data);
 
-    if (data.ok) {
-      setShowMain(false);
-      setShowForm(false);
-      setShowContent(true);
+      if (data.ok) {
+        setShowMain(false);
+        setShowForm(false);
+        setShowContent(true);
+      }
+    } else {
+      alert('Заполните все поля');
     }
   };
 
