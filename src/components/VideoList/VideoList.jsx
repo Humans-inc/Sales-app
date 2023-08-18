@@ -9,43 +9,14 @@ const VideoList = ({ list }) => {
   const [idVideo, setIdVideo] = useState('');
   const [openPopup, setOpenPopup] = useState(false);
 
-  const [lessonNumber, setLessonNumber] = useState('');
-
-  const getId = (id, lessonId) => {
+  const getId = (id) => {
     setIdVideo(id);
-    setLessonNumber(lessonId);
     setOpenPopup(true);
-  };
-
-  const sendLessonId = async (lessonId) => {
-    const formData = new FormData();
-    formData.append('lesson_id', lessonId);
-    formData.append('tgid', tg.initDataUnsafe.user.id);
-
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
-
-    // const response = await fetch(
-    //   'https://hmns.in/prodano/public/view-counter',
-    //   {
-    //     method: 'POST',
-    //     body: formData,
-    //   }
-    // );
-
-    // const data = await response.text();
-    // console.log(data);
   };
 
   useEffect(() => {
     console.log(idVideo);
   }, [idVideo, openPopup]);
-
-  useEffect(() => {
-    console.log(lessonNumber);
-    sendLessonId(lessonNumber);
-  }, [lessonNumber]);
 
   // setOpenPopup(!openPopup);
   // console.log({ id, idVideo, openPopup });
@@ -54,7 +25,12 @@ const VideoList = ({ list }) => {
     <div>
       {!!list.length &&
         list.map((item, index) => (
-          <VideoLink key={index} {...item} onClick={getId} />
+          <VideoLink
+            key={index}
+            {...item}
+            onClick={getId}
+            tgId={tg.initDataUnsafe.user.id}
+          />
         ))}
       <Popup id={idVideo} visible={openPopup} setVisible={setOpenPopup} />
     </div>
