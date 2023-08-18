@@ -5,7 +5,7 @@ const VideoLink = ({ id, title, description, onClick, number, tgId }) => {
   const sendLessonId = async (lessonId) => {
     const formData = new FormData();
     formData.append('lesson_id', lessonId);
-    formData.append('tgid', tgId);
+    formData.append('tg_id', tgId);
 
     for (var pair of formData.entries()) {
       console.log(pair[0] + ', ' + pair[1]);
