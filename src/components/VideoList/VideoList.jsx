@@ -26,16 +26,16 @@ const VideoList = ({ list }) => {
       console.log(pair[0] + ', ' + pair[1]);
     }
 
-    const response = await fetch(
-      'https://hmns.in/prodano/public/view-counter',
-      {
-        method: 'POST',
-        body: formData,
-      }
-    );
+    // const response = await fetch(
+    //   'https://hmns.in/prodano/public/view-counter',
+    //   {
+    //     method: 'POST',
+    //     body: formData,
+    //   }
+    // );
 
-    const data = await response.text();
-    console.log(data);
+    // const data = await response.text();
+    // console.log(data);
   };
 
   useEffect(() => {
