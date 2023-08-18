@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, } from 'react';
 
 import VideoLink from '../VideoLink/VideoLink';
 import Popup from '../Popup/Popup';
@@ -13,13 +13,6 @@ const VideoList = ({ list }) => {
     setIdVideo(id);
     setOpenPopup(true);
   };
-
-  // useEffect(() => {
-  //   console.log(idVideo);
-  // }, [idVideo, openPopup]);
-
-  // setOpenPopup(!openPopup);
-  // console.log({ id, idVideo, openPopup });
 
   return (
     <div>

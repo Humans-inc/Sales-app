@@ -41,7 +41,7 @@ function App() {
 
   const handleShowMain = () => {
     setShowMain(false);
-    setShowContent(true);
+    setShowForm(true);
   };
 
   // const handleSendForm = (e) => {
