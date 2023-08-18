@@ -57,9 +57,9 @@ function App() {
 
     if (
       e.target.user_name.value.length &&
-      e.target.user_name.user_phone.length &&
-      e.target.user_name.user_email.length &&
-      e.target.user_name.user_insta.length
+      e.target.user_phone.length &&
+      e.target.user_email.length &&
+      e.target.user_insta.length
     ) {
       const response = await fetch('https://hmns.in/prodano/public/register', {
         method: 'POST',
