@@ -14,9 +14,9 @@ const VideoList = ({ list }) => {
     setOpenPopup(true);
   };
 
-  useEffect(() => {
-    console.log(idVideo);
-  }, [idVideo, openPopup]);
+  // useEffect(() => {
+  //   console.log(idVideo);
+  // }, [idVideo, openPopup]);
 
   // setOpenPopup(!openPopup);
   // console.log({ id, idVideo, openPopup });

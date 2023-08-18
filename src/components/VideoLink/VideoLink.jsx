@@ -1,7 +1,7 @@
 import './VideoLink.scss';
 
 const VideoLink = ({ id, title, description, onClick, number, tgId }) => {
-  
+
   const sendLessonId = async (lessonId) => {
     const formData = new FormData();
     formData.append('lesson_id', lessonId);
@@ -11,16 +11,16 @@ const VideoLink = ({ id, title, description, onClick, number, tgId }) => {
       console.log(pair[0] + ', ' + pair[1]);
     }
 
-    // const response = await fetch(
-    //   'https://hmns.in/prodano/public/view-counter',
-    //   {
-    //     method: 'POST',
-    //     body: formData,
-    //   }
-    // );
+    const response = await fetch(
+      'https://hmns.in/prodano/public/view-counter',
+      {
+        method: 'POST',
+        body: formData,
+      }
+    );
 
-    // const data = await response.text();
-    // console.log(data);
+    const data = await response.text();
+    console.log(data);
   };
 
   return (
