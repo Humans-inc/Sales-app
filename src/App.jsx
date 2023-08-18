@@ -80,9 +80,6 @@ function App() {
 
   // checkData(tg.initData);
 
-  const userData = tg.initDataUnsafe;
-
-  console.log({ userData, typeof: typeof initDataUnsafe });
 
   const handleForm = async (e) => {
     e.preventDefault();
