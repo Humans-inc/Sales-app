@@ -29,8 +29,8 @@ function App() {
         console.log({ registered: data.registered });
         if (data.registered) {
           setShowMain(false);
-          setShowForm(true);
-          //setShowContent(true);
+          setShowForm(false);
+          setShowContent(true);
         } else {
           setShowMain(true);
         }
@@ -51,9 +51,9 @@ function App() {
 
     formData.append('user_tgid', tg.initDataUnsafe.user.id);
 
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
+    // for (var pair of formData.entries()) {
+    //   console.log(pair[0] + ', ' + pair[1]);
+    // }
 
     if (
       e.target.user_name.value.length &&
@@ -74,6 +74,8 @@ function App() {
         setShowMain(false);
         setShowForm(false);
         setShowContent(true);
+      } else {
+        alert('Что-то не так, попробуйте позже');
       }
     } else {
       alert('Заполните все поля');
