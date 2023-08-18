@@ -4,17 +4,41 @@ import VideoLink from '../VideoLink/VideoLink';
 import Popup from '../Popup/Popup';
 
 const VideoList = ({ list }) => {
+
+  const tg = window.Telegram.WebApp;
+
   const [idVideo, setIdVideo] = useState('');
   const [openPopup, setOpenPopup] = useState(false);
 
-  const getId = (id) => {
+  const [lessonNumber, setLessonNumber] = useState('')
+
+  const getId = (id, lessonId) => {
     setIdVideo(id);
+    setLessonNumber(lessonId);
     setOpenPopup(true);
+  };
+
+  const sendLessonId = async (lessonId) => {
+
+    const formData = new FormData();
+    formData.append('lesson_id', lessonId);
+    formData.append('tgid', tg.initDataUnsafe.user.id);
+    const response = await fetch(
+      'https://hmns.in/prodano/public/view-counter',
+      {
+        method: 'POST',
+        body: formData,
+      }
+    );
+
+    const data = await response.json();
+    console.log(data);
   };
 
   useEffect(() => {
     console.log(idVideo);
-  }, [idVideo, openPopup]);
+    sendLessonId(lessonNumber);
+  }, [idVideo, openPopup, lessonNumber]);
 
   // setOpenPopup(!openPopup);
   // console.log({ id, idVideo, openPopup });
@@ -23,7 +47,7 @@ const VideoList = ({ list }) => {
     <div>
       {!!list.length &&
         list.map((item, index) => (
-          <VideoLink key={index} {...item} onClick={getId} />
+          <VideoLink key={index} {...item} onClick={getId}/>
         ))}
       <Popup
         id={idVideo}
