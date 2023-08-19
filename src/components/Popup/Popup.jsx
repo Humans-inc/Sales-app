@@ -23,13 +23,15 @@ const Popup = ({ id, visible, setVisible }) => {
             />
           </svg>
         </button>
-        <div className="iframe-wrap">
-          <iframe
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${id}`}
-            allow="autoplay; fullscreen;"
-            allowFullScreen></iframe>
+        <div className="iframe-wrap-wrap">
+          <div className="iframe-wrap">
+            <iframe
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${id}`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+              allowFullScreen></iframe>
+          </div>
         </div>
       </div>
     )
