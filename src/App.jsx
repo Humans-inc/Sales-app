@@ -12,6 +12,7 @@ function App() {
   const [showContent, setShowContent] = useState(false);
 
   const tg = window.Telegram.WebApp;
+  tg.expand();
 
   useEffect(() => {
     const fetchData = async (init) => {
@@ -29,8 +30,8 @@ function App() {
         console.log({ registered: data.registered });
         if (data.registered) {
           setShowMain(false);
-          setShowForm(false);
-          setShowContent(true);
+          setShowForm(true);
+          setShowContent(false);
         } else {
           setShowMain(true);
         }
