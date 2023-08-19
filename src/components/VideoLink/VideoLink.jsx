@@ -7,10 +7,6 @@ const VideoLink = ({ id, title, description, onClick, number, tgId }) => {
     formData.append('lesson_id', lessonId);
     formData.append('tgid', tgId);
 
-    for (var pair of formData.entries()) {
-      console.log(pair[0] + ', ' + pair[1]);
-    }
-
     const response = await fetch(
       'https://hmns.in/prodano/public/view-counter',
       {
@@ -22,8 +18,6 @@ const VideoLink = ({ id, title, description, onClick, number, tgId }) => {
     const data = await response.text();
     console.log(data);
   }
-
-  console.log({number, tgId})
 
   return (
     <div
