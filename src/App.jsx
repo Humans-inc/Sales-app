@@ -30,8 +30,8 @@ function App() {
         console.log({ registered: data.registered });
         if (data.registered) {
           setShowMain(false);
-          setShowForm(true);
-          setShowContent(false);
+          setShowForm(false);
+          setShowContent(true);
         } else {
           setShowMain(true);
         }
