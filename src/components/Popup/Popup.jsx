@@ -27,10 +27,9 @@ const Popup = ({ id, visible, setVisible }) => {
           <iframe
             width="560"
             height="315"
-            src={`https://www.youtube.com/embed/${id}`}
+            src={`https://www.youtube.com/embed/${id}&autoplay=1`}
             allow="autoplay; fullscreen;"
-            allowFullScreen
-            frameBorder="0"></iframe>
+            allowFullScreen="allowFullScreen"></iframe>
         </div>
       </div>
     )
