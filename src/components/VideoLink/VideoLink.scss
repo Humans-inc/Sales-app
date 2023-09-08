@@ -30,3 +30,13 @@
     text-transform: uppercase;
   }
 }
+a.video-link {
+  display: block;
+  text-decoration: none;
+  * {
+    text-decoration: none;
+  }
+  &:is(:hover, :active, :focus, :link, :visited) {
+    text-decoration: none;
+  }
+}
